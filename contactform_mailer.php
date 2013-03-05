@@ -67,5 +67,4 @@ if(isset($_POST['submit'])) {
 		echo "<p class='error'>".$error_msg."</p>";
 	}
 }
-
 ?>
