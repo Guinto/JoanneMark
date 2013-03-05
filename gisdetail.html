@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="css/global.css" />
+<link rel="stylesheet" href="css/gisdetail.css" />
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -64,20 +65,16 @@
 	<div class="container presentation">
 
 		<div class="row">
-		
 			<div class="span8">
 				<!-- Carousel
     ================================================== -->
 				<div id="portfolio" class="carousel slide">
 					<div class="carousel-inner">
 						<div class="item active">
-							<img src="img/portfolio/Portfolio.jpg" alt="">
+							<img src="img/map2.png" alt="">
 						</div>
 						<div class="item">
-							<img src="img/portfolio/Portfolio-2.jpg" alt="">
-						</div>
-						<div class="item">
-							<img src="img/portfolio/Portfolio-3.jpg" alt="">
+							<img src="img/map1.png" alt="">
 						</div>
 					</div>
 					<a class="left carousel-control" href="#portfolio"
@@ -86,32 +83,87 @@
 				</div>
 				<!-- /.carousel -->
 			</div>
-			<div class="span4">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-					nibh, ut fermentum massa justo sit amet risus.</p>
 
-				<h4>Technologies used</h4>
-				<ul>
-					<li>Revit</li>
-					<li>AutoCAD</li>
-					<li>SketchUp</li>
-				</ul>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-					nibh, ut fermentum massa justo sit amet risus.</p>
+			<div class="span4">
+				<h2>GIS Maps</h2>
+
+				<div id="gis1" class="gisMap">
+					<h5 class="js-gis-header">Erodability in 100 Year
+						Flood Zones in Los Osos, CA</h5>
+
+					<div class="js-gis-description">
+						<p>Two separate maps were created by using different data
+							frames for each map to create a better picture of the site and a
+							detailed view of the information being diplayed. Attributes of
+							data layers were used to get specific factors needed for the map.</p>
+
+						<p>This top map shows the 100 year flood zones, in Los Osos in
+							the highlighted blue regions, that contain erosive soils that are
+							considered either high or moderate to high. The bottom map is a
+							close up view of the northern highlighted region.</p>
+							
+						<img src="img/map2Legend.png">
+					</div>
+				</div>
+
+
+				<div id="gis2" class="gisMap">
+					<h5 class="js-gis-header">Methods of Transportation
+						and Outdoor Spaces</h5>
+
+					<div class="js-gis-description">
+						<p>The start of using GIS included: exploring the different
+							data layers available and being able to combine them into a
+							simple functional map.</p>
+
+						<p>This map shows the different ways of getting around San
+							Luis Obispo and various outdoor spaces that people can use as a
+							travel destination. A resource to bring people out of their house
+							and into the natural outdoors around them.</p>
+							
+						<img src="img/map1Legend.png">
+					</div>
+				</div>
 			</div>
 
 			<!-- /.span4 -->
 		</div>
 	</div>
-		<script>
+	<script>
 		!function($) {
 			$(function() {
+				var prevIndex = 1;
+				$('#gis1').show();
 				$('#portfolio').carousel('pause');
+				$('#portfolio').bind('slid', function(slide) {
+				    var item = $('#portfolio .carousel-inner .item.active');
+
+				    // Index is 1-based, use this to activate the nav link based on slide
+				    var index = item.index() + 1;
+				    
+					$('#gis' + prevIndex).hide();
+					$('#gis' + index).show();
+					
+					prevIndex = index;
+
+				});
+
+				/*$('#portfolio').bind('slide', function(slide) {
+				    var item = $('#portfolio .carousel-inner .item.active');
+
+				    // Index is 1-based, use this to activate the nav link based on slide
+				    var index = item.index() + 1;
+				    
+					$('#gis' + index).fadeOut(300);
+				});
+				$('#portfolio').bind('slid', function(slide) {
+				    var item = $('#portfolio .carousel-inner .item.active');
+
+				    // Index is 1-based, use this to activate the nav link based on slide
+				    var index = item.index() + 1;
+				    
+					$('#gis' + index).show();
+				});*/
 			})
 		}(window.jQuery)
 	</script>
