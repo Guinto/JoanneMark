@@ -19,12 +19,6 @@
 <script src="js/jquery-1.9.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-<style type="text/css">
-#message {
-	width: 98%;
-}
-</style>
-
 </head>
 <body>
 
@@ -49,9 +43,9 @@
 					<!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li><a href="whativedone.html">What I've Done</a></li>
+							<li><a class="active" href="#">What I've Done</a></li>
 							<li><a href="thisisme.html">This Is Me</a></li>
-							<li><a class="active" href="contact.html">Contact</a></li>
+							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</div>
 					<!--/.nav-collapse -->
@@ -67,58 +61,54 @@
 
 
 
-	<div class="container">
+	<div class="container presentation">
+
 		<div class="row">
-			<div class="span9">
-				<h2>Contact Me</h2>
-
-				<p>If you would like a to contact me about my work, experience,
-					potential opportunities or anything else please leave me a message.
-				<p>
-				<form id="contactform" method="post" action="contactform_mailer.php">
-
-					<div class="row">
-						<div class="span3">
-							<label for="subject">Subject</label><input id="subject"
-								name="subject" class="required" type="text" />
+		
+			<div class="span8">
+				<!-- Carousel
+    ================================================== -->
+				<div id="portfolio" class="carousel slide">
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img/portfolio/Portfolio.jpg" alt="">
 						</div>
-
-						<div class="span3">
-							<label for="name">Name</label><input id="name" name="name"
-								class="required" type="text" />
+						<div class="item">
+							<img src="img/portfolio/Portfolio-2.jpg" alt="">
 						</div>
-
-						<div class="span3">
-							<label for="email">E-Mail</label><input id="email" name="email"
-								class="required" type="text" />
+						<div class="item">
+							<img src="img/portfolio/Portfolio-3.jpg" alt="">
 						</div>
 					</div>
-
-					<div class="row">
-						<div class="span9">
-							<label for="message">Message</label>
-							<textarea id="message" name="message" class="required" rows="8"></textarea>
-						</div>
-					</div>
-
-					<button class="btn" type="submit" name="submit">Send
-						Message</button>
-				</form>
-			</div>
-			<div class="span3">
-
-				<div class="well" id="contactInfo">
-					<div>660 South Street</div>
-					<div>San Luis Obispo, CA 93405</div>
-					<div>Tel: (925) 922-1618</div>
-					<div>
-						Email: <a href="mailto:jnnmark@gmail.com">jnnmark@gmail.com</a>
-					</div>
+					<a class="left carousel-control" href="#portfolio"
+						data-slide="prev">&lsaquo;</a> <a class="right carousel-control"
+						href="#portfolio" data-slide="next">&rsaquo;</a>
 				</div>
+				<!-- /.carousel -->
 			</div>
+			<div class="span4">
+				<h2>Heading</h2>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
+					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+					nibh, ut fermentum massa justo sit amet risus.</p>
+
+				<h4>Technologies used</h4>
+				<ul>
+					<li>Revit</li>
+					<li>AutoCAD</li>
+					<li>SketchUp</li>
+				</ul>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
+					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
+					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+					nibh, ut fermentum massa justo sit amet risus.</p>
+			</div>
+
+			<!-- /.span4 -->
 		</div>
 	</div>
-	<script>
+		<script>
 		!function($) {
 			$(function() {
 				$('#portfolio').carousel('pause');
